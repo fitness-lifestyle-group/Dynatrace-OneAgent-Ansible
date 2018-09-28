@@ -1,0 +1,12 @@
+---
+- block:
+  - fail:
+    msg: "The 'oneagent_installer_script_url' variable has not been set, it must contain the Dynatrace OneAgent Installer Script URL. Please consult the documentation."
+    when: (oneagent_installer_script_url is undefined) or (oneagent_installer_script_url is none) or (oneagent_installer_script_url | trim == "")
+  - name: "Install Dynatrace OneAgent"
+    win_package:
+      path: "{{ oneagent_installer_script_url }}"
+      productid: "{{ oneagent_msi_product_id }}"
+      ensure: present
+      creates_path: C:\ProgramData\dynatrace\oneagent
+  when: (oneagent_installer_script_url is defined) and (oneagent_installer_script_url is not none)

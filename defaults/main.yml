@@ -1,5 +1,7 @@
 ---
 oneagent_installer_script_url:
+# for Windows installer
+oneagent_msi_product_id: '{41908EE0-7DE7-4F09-A36F-14F5D51ED168}'
 # for backward compatibility:
 dynatrace_oneagent_cluster_subdomain:
 dynatrace_oneagent_environment_id:
